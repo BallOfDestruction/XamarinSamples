@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTransaction", "CustomTransaction\CustomTransaction.csproj", "{5D0A4237-5163-4614-8E83-954F57209CEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D0A4237-5163-4614-8E83-954F57209CEF}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{5D0A4237-5163-4614-8E83-954F57209CEF}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{5D0A4237-5163-4614-8E83-954F57209CEF}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{5D0A4237-5163-4614-8E83-954F57209CEF}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal

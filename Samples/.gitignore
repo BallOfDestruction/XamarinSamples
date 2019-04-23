@@ -1,0 +1,15 @@
+/.vs
+/Droid/obj
+/Droid/bin
+/Droid/*.user
+/Analitics/obj
+/Analitics/bin
+/Analitics/*.user
+/Database/obj
+/Database/bin
+/Database/*.user
+/iOS/obj
+/iOS/bin
+/iOS/*.user
+/RssClientByKotlin/.idea
+/RssClientByKotlin/app/.idea
