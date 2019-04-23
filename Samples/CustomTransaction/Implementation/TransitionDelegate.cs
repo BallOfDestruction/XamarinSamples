@@ -25,7 +25,9 @@ namespace CustomTransaction.Implementation
 
         public override IUIViewControllerInteractiveTransitioning GetInteractionControllerForDismissal(IUIViewControllerAnimatedTransitioning animator)
         {
-            return (animator as FlipDismissAnimationController)?.InterractionController;
+            if (animator is FlipDismissAnimationController flipController && flipController.InterractionController.InteractionInProgress)
+                return flipController.InterractionController;
+            return null;
         }
     }
 }
