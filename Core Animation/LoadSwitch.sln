@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadSwitch", "LoadSwitch\LoadSwitch.csproj", "{B1B182CD-F060-493B-89B6-F1B4F09338E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadSwitch.Example", "LoadSwitch.Example\LoadSwitch.Example.csproj", "{B6BB02FA-DFAB-4752-B2CC-759ACCA113D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1B182CD-F060-493B-89B6-F1B4F09338E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B182CD-F060-493B-89B6-F1B4F09338E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B182CD-F060-493B-89B6-F1B4F09338E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B182CD-F060-493B-89B6-F1B4F09338E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6BB02FA-DFAB-4752-B2CC-759ACCA113D1}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{B6BB02FA-DFAB-4752-B2CC-759ACCA113D1}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{B6BB02FA-DFAB-4752-B2CC-759ACCA113D1}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{B6BB02FA-DFAB-4752-B2CC-759ACCA113D1}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02F733CD-06A0-4D70-BC7C-F5584C597152}
+	EndGlobalSection
+EndGlobal

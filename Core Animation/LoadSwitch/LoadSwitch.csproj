@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1B182CD-F060-493B-89B6-F1B4F09338E9}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LoadSwitch</RootNamespace>
+    <IPhoneResourcePrefix>Resources;Resources\Images</IPhoneResourcePrefix>
+    <AssemblyName>LoadSwitch</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=2019.1.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325">
+      <HintPath>..\packages\JetBrains.Annotations.2019.1.1\lib\netstandard2.0\JetBrains.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\FrameExtension.cs" />
+    <Compile Include="Extensions\GraphicsHelper.cs" />
+    <Compile Include="Extensions\NotNullExtension.cs" />
+    <Compile Include="Extensions\LoadSwitchLayerExtension.cs" />
+    <Compile Include="Layers\BorderGradientLayer.cs" />
+    <Compile Include="Layers\FullBlackMaskGradientLayer.cs" />
+    <Compile Include="Layers\LoadImageGradientLayer.cs" />
+    <Compile Include="Layers\OffImageMaskGradientLayer.cs" />
+    <Compile Include="Layers\OffTextGradientLayer.cs" />
+    <Compile Include="Layers\OnImageGradientLayer.cs" />
+    <Compile Include="Layers\OnTextMaskLayer.cs" />
+    <Compile Include="Layers\LoadSwitchGradientLayer.cs" />
+    <Compile Include="Layers\LoadSwitchViewMaskLayer.cs" />
+    <Compile Include="Layers\LoadSwitchWithMaskGradientLayer.cs" />
+    <Compile Include="Layers\CenterGradientWithTransparentFloatingCircleGradientLayer.cs" />
+    <Compile Include="Layers\WithMovingCircleAndImageGradientLayer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoadSwitch.Builder.cs" />
+    <Compile Include="LoadSwitch.cs" />
+    <Compile Include="LoadSwitchViewState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>
