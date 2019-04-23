@@ -1,1 +1,0 @@
-![SampleGif.gif](SampleGif.gif)
