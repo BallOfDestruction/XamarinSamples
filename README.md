@@ -1,4 +1,4 @@
 # XamarinSamples
 
 ## Custom Transaction
-[Custom Transactions](Samples)
+[Custom Transactions](CustomTransactions)
