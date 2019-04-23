@@ -1,7 +1,7 @@
 # XamarinSamples
 
 ## Custom Transaction
-[Custom Transactions](CustomTransactions)
+[Custom Transactions](Custom_Transactions)
 
 ## Core Animation
-[Load Switch] (Core Animation)
+[Load Switch](Core_Animation)
