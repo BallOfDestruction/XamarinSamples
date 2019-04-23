@@ -1,1 +1,1 @@
-![SampleGif.gif](Samples/SampleGif.gif)
+![SampleGif.gif](SampleGif.gif)
