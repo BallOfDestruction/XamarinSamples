@@ -23,7 +23,7 @@ namespace Droid
         {
             var previousFragment = _fragmentActivity.SupportFragmentManager.Fragments?.LastOrDefault();
 
-            SetAnimation(previousFragment, fragment, enter, exit, AnimationSpeed.X05);
+            SetAnimation(fragment, previousFragment, enter, exit, AnimationSpeed.X05);
 
             _fragmentActivity.SupportFragmentManager.BeginTransaction()
                 .Replace(_container.Id, fragment)
