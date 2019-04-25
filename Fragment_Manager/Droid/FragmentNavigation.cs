@@ -31,13 +31,14 @@ namespace Droid
                 .Commit();
         }
 
-        private void SetAnimation(Fragment previousFragment, 
-            Fragment fragment, 
+        private void SetAnimation(Fragment fragment, 
+            Fragment previousFragment, 
             AnimationType enterType,
             AnimationType exitType,
             AnimationSpeed speed)
         {
-            CommonAnimate(fragment, previousFragment, 
+            CommonAnimate(fragment,
+                 previousFragment, 
                 speed.GetCalculationAnimationTime(),
                 enterType.ToVisibility(),
                 exitType.ToVisibility(),
@@ -46,8 +47,8 @@ namespace Droid
         }
         
         private void CommonAnimate(
-            Fragment previousFragment,
             Fragment fragment,
+            Fragment previousFragment,
             int duration,
             Visibility enterEnterFragment,
             Visibility exitEnterFragment,
