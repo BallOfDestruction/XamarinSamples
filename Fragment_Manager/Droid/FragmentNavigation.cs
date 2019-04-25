@@ -59,6 +59,8 @@ namespace Droid
                 SetRightFragmentAnimation(previousFragment, enterPopFragment, exitPopFragment, duration);
             }
 
+            SetRightFragmentAnimation(fragment, enterEnterFragment, exitEnterFragment, duration);
+            
             if (enterEnterFragment != null)
             {
                 var listener = new TransitionListener(() =>
@@ -67,49 +69,63 @@ namespace Droid
                 });
 
                 enterEnterFragment.AddListener(listener);
+                exitEnterFragment.AddListener(listener);
             }
-            
-            SetRightFragmentAnimation(fragment, enterEnterFragment, exitEnterFragment, duration);
         }
 
         private void SetRightFragmentAnimation(Fragment fragment,
-            Visibility enterPopVisibility,
-            Visibility exitPopVisibility,
+            Visibility enterVisibility,
+            Visibility exitVisibility,
             long duration)
         {
-            if (enterPopVisibility != null)
+            if (enterVisibility != null)
             {
-                enterPopVisibility.SetDuration(duration);
-                enterPopVisibility.SetStartDelay(duration);
-                fragment.EnterTransition = enterPopVisibility;
+                enterVisibility.SetDuration(duration);
+                enterVisibility.SetStartDelay(duration);
+                fragment.EnterTransition = enterVisibility;
+            }
+            else
+            {
+                fragment.EnterTransition = null;
             }
 
-            if (exitPopVisibility != null)
+            if (exitVisibility != null)
             {
-                exitPopVisibility.SetDuration(duration);
-                exitPopVisibility.SetStartDelay(0);
-                fragment.ExitTransition = exitPopVisibility;
+                exitVisibility.SetDuration(duration);
+                exitVisibility.SetStartDelay(0);
+                fragment.ExitTransition = exitVisibility;
+            }
+            else
+            {
+                fragment.ExitTransition = null;
             }
         }
         
         private void SetReverseFragmentAnimation(Fragment fragment,
-            Visibility enterPopVisibility,
-            Visibility exitPopVisibility,
+            Visibility enterVisibility,
+            Visibility exitVisibility,
             long duration)
         {
-            if (enterPopVisibility != null)
+            if (enterVisibility != null)
             {
-                enterPopVisibility.SetDuration(duration);
-                enterPopVisibility.SetStartDelay(0);
-                fragment.EnterTransition = enterPopVisibility;
+                enterVisibility.SetDuration(duration);
+                enterVisibility.SetStartDelay(0);
+                fragment.EnterTransition = enterVisibility;
+            }
+            else
+            {
+                fragment.EnterTransition = null;
             }
 
-            if (exitPopVisibility != null)
+            if (exitVisibility != null)
             {
-                exitPopVisibility.SetDuration(duration);
-                exitPopVisibility.SetStartDelay(duration);
-//                exitPopVisibility.SetStartDelay(enterPopVisibility != null ? duration : 0);
-                fragment.ExitTransition = exitPopVisibility;
+                exitVisibility.SetDuration(duration);
+                exitVisibility.SetStartDelay(enterVisibility != null ? duration : 0);
+                fragment.ExitTransition = exitVisibility;
+            }
+            else
+            {
+                fragment.ExitTransition = null;
             }
         }
     }
@@ -122,7 +138,7 @@ namespace Droid
         {
             _action = action;
         }
-        
+
         public override void OnTransitionEnd(Transition transition)
         {
             base.OnTransitionEnd(transition);
