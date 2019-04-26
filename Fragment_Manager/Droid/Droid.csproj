@@ -79,6 +79,8 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout" Version="1.1.2" />
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout.Solver" Version="1.1.2" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

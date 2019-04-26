@@ -30,20 +30,15 @@ namespace Droid
             linearLayout.SetBackgroundColor(
                 new Color(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255)));
             
-            linearLayout.Orientation = Orientation.Vertical;
+            linearLayout.Orientation = Orientation.Horizontal;
 
-            AddButton(linearLayout, AnimationType.None, AnimationType.None);
-            AddButton(linearLayout, AnimationType.Fade, AnimationType.Fade);
-            AddButton(linearLayout, AnimationType.Explode, AnimationType.Explode);
-            AddButton(linearLayout, AnimationType.Top, AnimationType.Top);
-            AddButton(linearLayout, AnimationType.Top, AnimationType.Bottom);
-            AddButton(linearLayout, AnimationType.Right, AnimationType.Left);
-            AddButton(linearLayout, AnimationType.Left, AnimationType.Right);
+            AddButton(linearLayout, () => Activity.OnBackPressed(), "Go previous");
+            AddButton(linearLayout, () => _fragmentNavigation.GoTo(new AnimatableFragment(_fragmentNavigation)), "Go next");
 
             return linearLayout;
         }
 
-        private void AddButton(LinearLayout linearLayout, AnimationType enter, AnimationType exit)
+        private void AddButton(LinearLayout linearLayout, Action action, string title)
         {
             var button = new Button(Activity)
             {
@@ -51,10 +46,10 @@ namespace Droid
                     160){Gravity = GravityFlags.CenterHorizontal}
             };
 
-            button.Text = $"Enter: {enter} Exit: {exit}";
+            button.Text = title;
             button.Click += (sender, args) =>
             {
-                _fragmentNavigation.GoTo(new AnimatableFragment(_fragmentNavigation), enter, exit);
+                action.Invoke();
             };
             linearLayout.AddView(button);
         }

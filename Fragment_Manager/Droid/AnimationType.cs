@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Android.Support.Transitions;
 using Android.Views;
 
@@ -8,15 +9,29 @@ namespace Droid
     {
         None,
         Fade,
+        Explode,
         Bottom,
         Top,
         Left,
         Right,
-        Explode,
     }
 
     public static class AnimationTypeExtension
     {
+        public static List<AnimationType> GetAnimationTypes()
+        {
+            return new List<AnimationType>()
+            {
+                AnimationType.None, 
+                AnimationType.Bottom, 
+                AnimationType.Explode, 
+                AnimationType.Fade, 
+                AnimationType.Left,
+                AnimationType.Right, 
+                AnimationType.Top
+            };
+        }
+        
         public static Visibility ToVisibility(this AnimationType type)
         {
             switch (type)

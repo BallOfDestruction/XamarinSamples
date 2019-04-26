@@ -10,6 +10,11 @@ namespace Droid
 {
     public class FragmentNavigation
     {
+        public AnimationType Enter { get; set; } = AnimationType.Fade;
+        public AnimationType Exit { get; set; } = AnimationType.Fade;
+        public AnimationSpeed Speed { get; set; } = AnimationSpeed.X05;
+        public bool IsDelay { get; set; } = true;
+        
         private readonly FragmentActivity _fragmentActivity;
         private readonly ViewGroup _container;
 
@@ -19,11 +24,11 @@ namespace Droid
             _container = container;
         }
 
-        public void GoTo(Fragment fragment, AnimationType enter, AnimationType exit)
+        public void GoTo(Fragment fragment)
         {
             var previousFragment = _fragmentActivity.SupportFragmentManager.Fragments?.LastOrDefault();
 
-            SetAnimation(fragment, previousFragment, enter, exit, AnimationSpeed.X05);
+            SetAnimation(fragment, previousFragment);
 
             _fragmentActivity.SupportFragmentManager.BeginTransaction()
                 .Replace(_container.Id, fragment)
@@ -31,21 +36,19 @@ namespace Droid
                 .Commit();
         }
 
-        private void SetAnimation(Fragment fragment, 
-            Fragment previousFragment, 
-            AnimationType enterType,
-            AnimationType exitType,
-            AnimationSpeed speed)
+        private void SetAnimation(Fragment fragment,
+            Fragment previousFragment
+        )
         {
             CommonAnimate(fragment,
-                 previousFragment, 
-                speed.GetCalculationAnimationTime(),
-                enterType.ToVisibility(),
-                exitType.ToVisibility(),
-                enterType.ToVisibility(), 
-                exitType.ToVisibility());
+                previousFragment,
+                Speed.GetCalculationAnimationTime(),
+                Enter.ToVisibility(),
+                Exit.ToVisibility(),
+                Enter.ToVisibility(),
+                Exit.ToVisibility());
         }
-        
+
         private void CommonAnimate(
             Fragment fragment,
             Fragment previousFragment,
@@ -82,7 +85,8 @@ namespace Droid
             if (enterVisibility != null)
             {
                 enterVisibility.SetDuration(duration);
-                enterVisibility.SetStartDelay(duration);
+                if(IsDelay)
+                    enterVisibility.SetStartDelay(duration);
                 fragment.EnterTransition = enterVisibility;
             }
             else
@@ -93,7 +97,8 @@ namespace Droid
             if (exitVisibility != null)
             {
                 exitVisibility.SetDuration(duration);
-                exitVisibility.SetStartDelay(0);
+                if(IsDelay)
+                    exitVisibility.SetStartDelay(0);
                 fragment.ExitTransition = exitVisibility;
             }
             else
@@ -110,7 +115,8 @@ namespace Droid
             if (enterVisibility != null)
             {
                 enterVisibility.SetDuration(duration);
-                enterVisibility.SetStartDelay(0);
+                if(IsDelay)
+                    enterVisibility.SetStartDelay(0);
                 fragment.EnterTransition = enterVisibility;
             }
             else
@@ -121,7 +127,8 @@ namespace Droid
             if (exitVisibility != null)
             {
                 exitVisibility.SetDuration(duration);
-                exitVisibility.SetStartDelay(enterVisibility != null ? duration : 0);
+                if(IsDelay)
+                    exitVisibility.SetStartDelay(enterVisibility != null ? duration : 0);
                 fragment.ExitTransition = exitVisibility;
             }
             else

@@ -1,9 +1,25 @@
 using System;
+using System.Collections.Generic;
 
 namespace Droid
 {
     public static class AnimationSpeedExtension
     {
+        public static List<AnimationSpeed> GetAnimationSpeeds()
+        {
+            return new List<AnimationSpeed>()
+            {
+                AnimationSpeed.X025,
+                AnimationSpeed.X033,
+                AnimationSpeed.X05,
+                AnimationSpeed.X,
+                AnimationSpeed.X2,
+                AnimationSpeed.X3, 
+                AnimationSpeed.X4, 
+                AnimationSpeed.Max,
+            };
+        }
+        
         public static int GetCalculationAnimationTime(this AnimationSpeed animationSpeed)
         {
             var defaultTime = 500;
